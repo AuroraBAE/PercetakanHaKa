@@ -116,7 +116,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { title: "Fotokopi", image: "/gambar/Fotocopy.jpeg" },
-              { title: "Sablon", image: "/gambar/Sablon.jpeg" },
+              { title: "Sablon", image: "/gambar/sablon.jpeg" },
               { title: "Stempel", image: "/gambar/stample.jpeg " },
               { title: "Print", image: "/gambar/gambar_5.jpeg" },
               {
