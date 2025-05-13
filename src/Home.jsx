@@ -2,7 +2,7 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 
-export default function LandingPage() {
+export default function Home() {
   return (
     <div className="font-sans bg-gray-100 min-h-screen">
 
