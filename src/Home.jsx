@@ -71,12 +71,11 @@ export default function Home() {
           {/* Left Content */}
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Layanan <br />
-              Percetakan & <br />
-              Fotokopi Profesional
+              Print Cepat, Harga Hemat? <br />
+              Hanya di HaKa Fotocopy
             </h1>
             <p className="text-lg mb-6 text-gray-200">
-              Solusi cepat, terpercaya, dan berkualitas tinggi untuk kebutuhan bisnis dan pribadi Anda.
+              Haka Fotocopy Solusi cepat, terpercaya, dan berkualitas tinggi untuk kebutuhan bisnis dan pribadi Anda.
             </p>
             <div className="flex gap-4">
               <a href="#Layanan">
@@ -340,7 +339,7 @@ export default function Home() {
         </h3>
         <p className="mb-6 max-w-2xl mx-auto">
           kunjungi kami di toko atau hubungi kami secara online untuk
-          mendiskusikan kebutuhan percetakan dan fotokopi Anda. Kami siap
+          mendapatkan diskon 10% untuk semua layanan kami.
         </p>
         <a href="https://wa.me/6285263184268" target="_blank" rel="noopener noreferrer">
           <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded shadow">
