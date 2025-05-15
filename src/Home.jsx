@@ -71,8 +71,10 @@ export default function Home() {
           {/* Left Content */}
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Print Cepat, Harga Hemat? <br />
-              Hanya di HaKa Fotocopy
+              Print Cepat, <br/>
+              Hasil Berkualitas, <br />
+              Harga Hemat? <br />
+              Hanya di HAKA FOTOCOPY
             </h1>
             <p className="text-lg mb-6 text-gray-200">
               Haka Fotocopy Solusi cepat, terpercaya, dan berkualitas tinggi untuk kebutuhan bisnis dan pribadi Anda.
