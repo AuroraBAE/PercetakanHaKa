@@ -67,25 +67,23 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="Beranda" className="bg-gradient-to-r from-[#0c2d68] to-[#142c65] text-white py-40 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Left Content */}
-          <div className="md:w-1/2 mb-10 md:mb-0">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Print Cepat, <br/>
-              Hasil Berkualitas, <br />
-              Harga Hemat? <br />
-              Hanya di HAKA FOTOCOPY
+          <div className="md:w-1/2 space-y-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+              Print Cepat,<br />
+              Hasil Berkualitas,<br />
+              Harga Hemat?<br />
+              <span className="text-orange-400">Hanya di HAKA FOTOCOPY</span>
             </h1>
-            <p className="text-lg mb-6 text-gray-200">
-              Haka Fotocopy Solusi cepat, terpercaya, dan berkualitas tinggi untuk kebutuhan bisnis dan pribadi Anda.
+            <p className="text-lg text-white py-4 font-medium">
+              Haka Fotocopy: solusi cepat, terpercaya, dan berkualitas tinggi untuk kebutuhan bisnis maupun pribadi Anda.
             </p>
-            <div className="flex gap-4">
-              <a href="#Layanan">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded">
-                  Mulai Sekarang
-                </button>
-              </a>
-            </div>
+            <a href="#Layanan">
+              <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 text-white font-semibold px-8 py-4 rounded-lg shadow-lg">
+                Mulai Sekarang
+              </button>
+            </a>
           </div>
 
           {/* Right Image Placeholder */}
