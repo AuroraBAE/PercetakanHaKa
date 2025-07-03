@@ -1,25 +1,21 @@
 import React from "react";
-import { FaWhatsapp } from "react-icons/fa";
+// Menambahkan semua ikon yang dibutuhkan dari react-icons
+import { FaWhatsapp, FaFileUpload, FaCreditCard, FaBoxOpen } from "react-icons/fa";
 
 
 export default function Home() {
   return (
     <div className="font-sans bg-gray-100 min-h-screen">
 
-      {/* Navbar */}
+      {/* Navbar -- DENGAN PERBAIKAN -- */}
       <nav className="bg-white shadow-sm py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
         {/* Logo di kiri */}
         <a href="#Beranda">
           <div className="flex items-center space-x-4">
-            {/* Logo HaKa */}
             <h1 className="text-3xl font-extrabold bg-gradient-to-r from-blue-900 to-orange-500 text-transparent bg-clip-text">
               HaKa
             </h1>
-            
-            {/* Garis vertical */}
             <div className="w-px h-8 bg-gray-700"></div>
-            
-            {/* Deskripsi */}
             <div className="text-gray-700 font-serif leading-tight">
               <p>Fotokopi &</p>
               <p>Percetakan</p>
@@ -33,6 +29,12 @@ export default function Home() {
             <li>
               <a href="#Layanan" className="hover:text-blue-900">
                 Layanan
+              </a>
+            </li>
+            {/* -- BARU: Link ke Cara Pesan -- */}
+            <li>
+              <a href="#CaraPesan" className="hover:text-blue-900">
+                Cara Pesan
               </a>
             </li>
             <li>
@@ -55,17 +57,22 @@ export default function Home() {
                 Kontak
               </a>
             </li>
-            <li>
-              <a href="#Informasi" className="hover:text-blue-900">
-                Informasi
-              </a>
-            </li>
           </ul>
+        </div>
+        
+        {/* -- BARU: Tombol CTA di Kanan Navbar -- */}
+        <div className="hidden md:flex">
+             <a href="https://wa.me/6285263184268?text=Halo%20HaKa%20Fotocopy,%20saya%20tertarik%20untuk%20memesan." target="_blank" rel="noopener noreferrer">
+                <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 text-white font-semibold px-6 py-2 rounded-lg shadow-md flex items-center gap-2">
+                    <FaWhatsapp />
+                    Pesan Online
+                </button>
+            </a>
         </div>
       </nav>
 
 
-      {/* Hero Section */}
+      {/* Hero Section -- DENGAN PERBAIKAN -- */}
       <section id="Beranda" className="bg-gradient-to-r from-[#0c2d68] to-[#142c65] text-white py-40 px-6 md:px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Left Content */}
@@ -79,11 +86,20 @@ export default function Home() {
             <p className="text-lg text-white py-4 font-medium">
               Haka Fotocopy: solusi cepat, terpercaya, dan berkualitas tinggi untuk kebutuhan bisnis maupun pribadi Anda.
             </p>
-            <a href="#Layanan">
-              <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 text-white font-semibold px-8 py-4 rounded-lg shadow-lg">
-                Mulai Sekarang
-              </button>
-            </a>
+            {/* -- PERBAIKAN: Tombol CTA lebih jelas -- */}
+            <div className="flex flex-wrap items-center gap-4">
+                 <a href="https://wa.me/6285263184268?text=Halo%20HaKa%20Fotocopy,%20saya%20ingin%20memesan%20layanan%20Anda." target="_blank" rel="noopener noreferrer">
+                  <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 text-white font-bold px-8 py-4 rounded-lg shadow-lg flex items-center gap-3">
+                    <FaWhatsapp className="text-2xl" />
+                    Pesan via WhatsApp
+                  </button>
+                </a>
+                <a href="#Layanan">
+                  <button className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 transition duration-300 text-white font-semibold px-8 py-4 rounded-lg">
+                    Lihat Layanan Kami
+                  </button>
+                </a>
+            </div>
           </div>
 
           {/* Right Image Placeholder */}
@@ -135,11 +151,71 @@ export default function Home() {
                     className="w-full h-full object-fill "
                   />
                 </div>
-                <h4 className="text-lg font-semibold text-gray-700">
+                <h4 className="text-lg font-semibold text-gray-700 mt-4">
                   {service.title}
                 </h4>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* -- BARU: Section Cara Pemesanan -- */}
+      <section id="CaraPesan" className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-blue-900 mb-2">
+              Cara Mudah Memesan Online
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Hanya butuh 4 langkah sederhana untuk mendapatkan hasil cetak berkualitas tanpa harus keluar rumah.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            {/* Step 1 */}
+            <div className="flex flex-col items-center p-4">
+              <div className="bg-orange-500 text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-4">
+                <FaWhatsapp />
+              </div>
+              <h4 className="text-xl font-semibold text-blue-900 mb-2">1. Hubungi Kami</h4>
+              <p className="text-gray-600">
+                Klik tombol WhatsApp, lalu jelaskan kebutuhan cetak Anda (misal: print skripsi, fotokopi KTP, dll).
+              </p>
+            </div>
+            
+            {/* Step 2 */}
+            <div className="flex flex-col items-center p-4">
+              <div className="bg-orange-500 text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-4">
+                <FaFileUpload />
+              </div>
+              <h4 className="text-xl font-semibold text-blue-900 mb-2">2. Kirim File Anda</h4>
+              <p className="text-gray-600">
+                Kirimkan dokumen atau file desain Anda langsung melalui chat WhatsApp.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="flex flex-col items-center p-4">
+              <div className="bg-orange-500 text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-4">
+                <FaCreditCard />
+              </div>
+              <h4 className="text-xl font-semibold text-blue-900 mb-2">3. Konfirmasi & Bayar</h4>
+              <p className="text-gray-600">
+                Kami akan mengonfirmasi total biaya. Lakukan pembayaran melalui transfer atau metode lain yang disepakati.
+              </p>
+            </div>
+            
+            {/* Step 4 */}
+            <div className="flex flex-col items-center p-4">
+              <div className="bg-orange-500 text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-4">
+                <FaBoxOpen />
+              </div>
+              <h4 className="text-xl font-semibold text-blue-900 mb-2">4. Ambil Pesanan</h4>
+              <p className="text-gray-600">
+                Setelah selesai, pesanan bisa langsung Anda ambil di toko kami. Kami akan memberitahu jika sudah siap.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -154,7 +230,7 @@ export default function Home() {
             </h2>
             <p className="text-gray-700 mb-8">
               Kami adalah pilihan terbaik untuk semua kebutuhan percetakan dan
-              fotokopi Anda. Dengan pengalaman bertahun-tahun, kami menjamin
+              fotokopi Anda. Dengan pengalaman bertahun-tahun, kami menjamin kepuasan Anda.
             </p>
 
             {/* List of Features */}
@@ -192,18 +268,17 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* Right Box */}
+          {/* Right Box -- Teks dan link diperbarui */}
           <div className="bg-blue-100 p-8 rounded-lg shadow-md">
             <h3 className="text-xl font-bold text-blue-900 mb-3">
               Siap untuk memulai?
             </h3>
             <p className="text-gray-700 mb-6">
-              Kunjungi kami di toko atau hubungi kami secara online untuk
-              mendiskusikan kebutuhan percetakan dan fotokopi Anda.
+              Lihat panduan cara pesan kami atau hubungi langsung untuk mulai mencetak.
             </p>
-            <a href="#Kontak">
+            <a href="#CaraPesan">
               <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-5 rounded shadow">
-                Kontak kami
+                Lihat Caranya
               </button>
             </a>
           </div>
@@ -287,42 +362,37 @@ export default function Home() {
           </h3>
           <p className="text-center text-gray-600 mb-10">
             Kami bangga dengan layanan kami dan senang mendengar umpan balik
-            positif dari pelanggan kami. Berikut adalah beberapa testimoni dari
-            mereka yang telah menggunakan layanan kami.
+            positif dari pelanggan kami.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Testimonial Card 1 */}
             <div className="border rounded-lg p-6 shadow-sm">
               <p className="text-orange-500 text-4xl lg:text-5xl mb-4">❝</p>
               <p className="text-gray-700 italic mb-4">
                 Layanan cepat dan hasil cetakan yang luar biasa! Saya sangat
-                merekomendasikan QuickCopy untuk semua kebutuhan percetakan
-                Anda.
+                merekomendasikan HaKa untuk semua kebutuhan percetakan.
               </p>
               <div>
                 <p className="font-bold text-blue-900">Ilham</p>
               </div>
             </div>
 
-            {/* Testimonial Card 2 */}
             <div className="border rounded-lg p-6 shadow-sm">
               <p className="text-orange-500 text-4xl lg:text-5xl mb-4">❝</p>
               <p className="text-gray-700 italic mb-4">
-                saya sangat terkesan dengan kualitas cetakan dan layanan
-                pelanggan mereka. Tim sangat membantu dan selalu siap membantu
+                Saya sangat terkesan dengan kualitas cetakan dan layanan
+                pelanggan mereka. Tim sangat membantu dan selalu siap membantu.
               </p>
               <div>
                 <p className="font-bold text-blue-900">Abi</p>
               </div>
             </div>
 
-            {/* Testimonial Card 3 */}
             <div className="border rounded-lg p-6 shadow-sm">
               <p className="text-orange-500 text-4xl lg:text-5xl mb-4">❝</p>
               <p className="text-gray-700 italic mb-4">
-                format besar dan hasil cetakan yang luar biasa! Saya sangat
-                merekomendasikan HaKa untuk semua kebutuhan percetakan
+                Pesan spanduk format besar hasilnya luar biasa! Saya sangat
+                merekomendasikan HaKa untuk semua kebutuhan percetakan.
               </p>
               <div>
                 <p className="font-bold text-blue-900">Naufal</p>
@@ -338,8 +408,7 @@ export default function Home() {
           Hubungi Kami
         </h3>
         <p className="mb-6 max-w-2xl mx-auto">
-          kunjungi kami di toko atau hubungi kami secara online untuk
-          mendapatkan diskon 10% untuk semua layanan kami.
+          Punya pertanyaan lebih lanjut atau ingin memesan langsung? Klik tombol di bawah ini untuk terhubung dengan kami di WhatsApp.
         </p>
         <a href="https://wa.me/6285263184268" target="_blank" rel="noopener noreferrer">
           <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded shadow">
@@ -353,10 +422,10 @@ export default function Home() {
       <section className="py-20 bg-white" id="Informasi">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-2">
-            Informasi Kami
+            Informasi Toko
           </h2>
           <p className="text-center text-gray-600 mb-10">
-            Punya pertanyaan atau butuh bantuan? Kami di sini untuk membantu Anda!
+            Kunjungi kami langsung atau hubungi melalui detail kontak di bawah ini.
           </p>
 
           <div className="flex justify-center">
@@ -399,6 +468,17 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* -- BARU: Floating WhatsApp Button -- */}
+      <a 
+        href="https://wa.me/6285263184268?text=Halo%20HaKa%20Fotocopy,%20saya%20mau%20bertanya." 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300 z-50"
+        aria-label="Hubungi kami di WhatsApp"
+      >
+        <FaWhatsapp className="text-3xl" />
+      </a>
     </div>
   );
 }
