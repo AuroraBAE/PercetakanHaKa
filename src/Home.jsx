@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// Menambahkan semua ikon yang dibutuhkan
 import {
   FaWhatsapp,
   FaFileUpload,
@@ -10,11 +9,20 @@ import {
   FaShareAlt,
 } from "react-icons/fa";
 
+// Komponen link navigasi dengan efek hover
+const NavLink = ({ href, children, onClick }) => (
+  <a
+    href={href}
+    onClick={onClick}
+    className="pb-1 text-lg text-gray-700 font-medium bg-gradient-to-r from-orange-500 to-orange-500 bg-bottom bg-no-repeat transition-[background-size] duration-300 [background-size:0%_2px] hover:[background-size:100%_2px]"
+  >
+    {children}
+  </a>
+);
+
 export default function Home() {
-  // State untuk mengontrol visibilitas menu mobile
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Fungsi untuk handle share, dengan fallback copy-to-clipboard
   const handleShare = async () => {
     const shareData = {
       title: "HaKa Fotokopi & Percetakan",
@@ -35,9 +43,9 @@ export default function Home() {
 
   return (
     <div className="font-sans bg-gray-100 min-h-screen">
-      {/* Navbar Responsif */}
-      <nav className="bg-white shadow-sm py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
-        <a href="#Beranda" onClick={() => setIsMenuOpen(false)}>
+      {/* Navbar Utama */}
+      <nav className="bg-white shadow-sm py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-30">
+        <a href="#Beranda">
           <div className="flex items-center space-x-4">
             <h1 className="text-3xl font-extrabold bg-gradient-to-r from-blue-900 to-orange-500 text-transparent bg-clip-text">
               HaKa
@@ -52,51 +60,82 @@ export default function Home() {
 
         {/* Menu Desktop */}
         <div className="hidden md:flex items-center">
-          <ul className="flex gap-8 text-gray-700 font-medium text-lg">
-            <li><a href="#Layanan" className="hover:text-blue-900">Layanan</a></li>
-            <li><a href="#CaraPesan" className="hover:text-blue-900">Cara Pesan</a></li>
-            <li><a href="#Keunggulan" className="hover:text-blue-900">Keunggulan</a></li>
-            <li><a href="#Harga" className="hover:text-blue-900">Harga</a></li>
-            <li><a href="#Kontak" className="hover:text-blue-900">Kontak</a></li>
+          <ul className="flex gap-8">
+            <li><NavLink href="#Layanan">Layanan</NavLink></li>
+            <li><NavLink href="#CaraPesan">Cara Pesan</NavLink></li>
+            <li><NavLink href="#Keunggulan">Keunggulan</NavLink></li>
+            <li><NavLink href="#Harga">Harga</NavLink></li>
+            <li><NavLink href="#Kontak">Kontak</NavLink></li>
           </ul>
         </div>
         <div className="hidden md:flex ml-8">
           <a href="https://wa.me/6285263184268?text=Halo%20HaKa%20Fotocopy,%20saya%20tertarik%20untuk%20memesan." target="_blank" rel="noopener noreferrer">
             <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 text-white font-semibold px-6 py-2 rounded-lg shadow-md flex items-center gap-2">
-              <FaWhatsapp />
-              Pesan Online
+              <FaWhatsapp /> Pesan Online
             </button>
           </a>
         </div>
 
-        {/* Tombol Hamburger Menu (Mobile) */}
+        {/* Tombol Hamburger (Mobile) */}
         <div className="md:hidden">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 text-2xl">
-            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          <button onClick={() => setIsMenuOpen(true)} className="text-gray-700 text-2xl">
+            <FaBars />
           </button>
         </div>
+      </nav>
 
-        {/* Menu Mobile Dropdown */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4">
-            <ul className="flex flex-col items-center gap-4 text-gray-700 font-medium text-lg">
-              <li><a href="#Layanan" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-900 py-2">Layanan</a></li>
-              <li><a href="#CaraPesan" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-900 py-2">Cara Pesan</a></li>
-              <li><a href="#Keunggulan" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-900 py-2">Keunggulan</a></li>
-              <li><a href="#Harga" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-900 py-2">Harga</a></li>
-              <li><a href="#Kontak" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-900 py-2">Kontak</a></li>
-              <li className="mt-4">
-                <a href="https://wa.me/6285263184268?text=Halo%20HaKa%20Fotocopy,%20saya%20tertarik%20untuk%20memesan." target="_blank" rel="noopener noreferrer">
-                  <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 text-white font-semibold px-8 py-3 rounded-lg shadow-md flex items-center gap-2">
+      {/* --- Menu Off-Canvas (Mobile) -- DENGAN PERBAIKAN --- */}
+      <div
+        className={`fixed inset-0 z-40 transition-opacity duration-300 ${
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Overlay */}
+        <div
+          className="absolute inset-0 bg-black/50"
+          onClick={() => setIsMenuOpen(false)}
+        ></div>
+        
+        {/* Panel Menu */}
+        <div
+          className={`fixed top-0 right-0 h-full w-3/4 max-w-sm bg-white shadow-xl p-6 flex flex-col transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex justify-between items-center mb-10">
+            <h2 className="text-2xl font-bold text-blue-900">Menu</h2>
+            <button onClick={() => setIsMenuOpen(false)} className="text-gray-700 text-2xl">
+              <FaTimes />
+            </button>
+          </div>
+          
+          {/* Wrapper untuk menu dan tombol */}
+          <div className="flex flex-col justify-between flex-grow">
+            {/* Bagian atas: Link Navigasi */}
+            <ul className="flex flex-col gap-6">
+              <li><NavLink href="#Layanan" onClick={() => setIsMenuOpen(false)}>Layanan</NavLink></li>
+              <li><NavLink href="#CaraPesan" onClick={() => setIsMenuOpen(false)}>Cara Pesan</NavLink></li>
+              <li><NavLink href="#Keunggulan" onClick={() => setIsMenuOpen(false)}>Keunggulan</NavLink></li>
+              <li><NavLink href="#Harga" onClick={() => setIsMenuOpen(false)}>Harga</NavLink></li>
+              <li><NavLink href="#Kontak" onClick={() => setIsMenuOpen(false)}>Kontak</NavLink></li>
+            </ul>
+
+            {/* Bagian bawah: Garis dan Tombol */}
+            <div>
+              {/* --- BARU: Garis Pemisah --- */}
+              <div className="my-6 h-px w-full bg-gray-200"></div>
+
+              {/* --- BARU: Tombol Pesan di Off-canvas --- */}
+              <a href="https://wa.me/6285263184268?text=Halo%20HaKa%20Fotocopy,%20saya%20tertarik%20untuk%20memesan." target="_blank" rel="noopener noreferrer">
+                <button className="w-full bg-orange-500 hover:bg-orange-600 transition duration-300 text-white font-semibold p-3 rounded-lg shadow-md flex items-center justify-center gap-2">
                     <FaWhatsapp />
                     Pesan Online
-                  </button>
-                </a>
-              </li>
-            </ul>
+                </button>
+              </a>
+            </div>
           </div>
-        )}
-      </nav>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section id="Beranda" className="bg-gradient-to-r from-[#0c2d68] to-[#142c65] text-white py-40 px-6 md:px-12">
