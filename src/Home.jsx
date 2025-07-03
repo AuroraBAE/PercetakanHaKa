@@ -137,20 +137,36 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section id="Beranda" className="bg-gradient-to-r from-[#0c2d68] to-[#142c65] text-white py-40 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-          <div className="md:w-1/2 space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-              Print Cepat,<br />
-              Hasil Berkualitas,<br />
-              Harga Hemat?<br />
+      <section
+        id="Beranda"
+        className="relative py-40 px-6 md:px-12 bg-[#0c2d68]"
+        style={{
+          backgroundImage: `
+            /* Layer 3 (Paling Atas): Spotlight Halus */
+            radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent),
+            
+            /* Layer 2: Pola Grid */
+            linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            
+            /* Layer 1 (Paling Bawah): Gradasi Warna Biru Asli */
+            linear-gradient(to right, #0c2d68, #142c65)
+          `,
+          backgroundSize: "100% 100%, 50px 50px, 50px 50px, 100% 100%",
+          backgroundPosition: "center, center, center, center",
+        }}
+      >
+        <div className="relative max-w-4xl mx-auto text-center flex flex-col items-center">
+          <div className="space-y-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+              Print Cepat, Hasil Berkualitas, Harga Hemat?
+              <br />
               <span className="text-orange-400">Hanya di HAKA FOTOCOPY</span>
             </h1>
-            <p className="text-lg text-white py-4 font-medium">
+            <p className="text-lg md:text-xl text-white/90 py-4 font-medium max-w-2xl mx-auto">
               Haka Fotocopy: solusi cepat, terpercaya, dan berkualitas tinggi untuk kebutuhan bisnis maupun pribadi Anda.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <a href="https://wa.me/6285263184268?text=Halo%20HaKa%20Fotocopy,%20saya%20ingin%20memesan%20layanan%20Anda." target="_blank" rel="noopener noreferrer">
                 <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 text-white font-bold px-8 py-4 rounded-lg shadow-lg flex items-center gap-3">
                   <FaWhatsapp className="text-2xl" />
@@ -163,9 +179,6 @@ export default function Home() {
                 </button>
               </a>
             </div>
-          </div>
-          <div className="md:w-1/2 rounded-lg h-64 md:h-80 overflow-hidden flex items-center justify-center">
-            <img src="/gambar/gambar_5.jpeg" alt="Printing" className="w-full h-full object-cover rounded-lg" />
           </div>
         </div>
       </section>
